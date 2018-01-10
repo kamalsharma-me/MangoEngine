@@ -1,3 +1,1 @@
 # Mango Engine
-
-mangoengine.com
