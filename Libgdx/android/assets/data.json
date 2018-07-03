@@ -1,0 +1,30 @@
+{
+	"app" :
+	{
+		"Scenes" :
+		{
+		  	"files" : ["MenuScene", "GameScene","DialogScene"],
+			"present" : "MenuScene"
+		},
+
+		"Atlas" :
+		{
+		  	"files" : ["Images.atlas"]
+		},
+
+		"Sprites" :
+		{
+			"files" : ["Textures"]
+		},
+
+		"Effects" :
+		{
+		  	"files" : ["Effects"]
+		},
+
+		"Layers" :
+		{
+			"files" : ["Layers","Layers1"]
+		}
+	}
+}

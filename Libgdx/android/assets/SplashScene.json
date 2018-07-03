@@ -1,0 +1,24 @@
+{
+	"SplashScene" :
+	{
+		"Background" :
+		{
+			"Sprite" :
+			{
+				"Image" : "SpriteImage"
+			},
+
+			"Position" :
+			{
+				"x" : 10,
+				"y" : 10
+			},
+
+			"Animation" :
+			{
+				"x" : 10,
+				"y" : 10
+			}
+		}
+	}
+}

@@ -1,2 +1,2 @@
-include ':mangoengine', ':MangoEngine'
+include ':MangoEngine'
 include 'desktop', 'android', 'ios', 'html', 'core'

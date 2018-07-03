@@ -18,7 +18,7 @@ android {
         exclude 'META-INF/robovm/ios/robovm.xml'
     }
     defaultConfig {
-        applicationId "com.mango"
+        applicationId "com.gametest"
         minSdkVersion 9
         targetSdkVersion 26
         versionCode 1
@@ -79,7 +79,7 @@ task run(type: Exec) {
     }
 
     def adb = path + "/platform-tools/adb"
-    commandLine "$adb", 'shell', 'am', 'start', '-n', 'com.mango/com.mango.AndroidLauncher'
+    commandLine "$adb", 'shell', 'am', 'start', '-n', 'com.gametest/com.gametest.AndroidLauncher'
 }
 
 // sets up the Android Eclipse project, using the old Ant based build.

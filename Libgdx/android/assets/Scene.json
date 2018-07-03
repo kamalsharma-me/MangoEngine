@@ -1,0 +1,25 @@
+{
+	"MenuScene" :
+	{
+		"CloudBig01" :
+		{
+			"Transform" :
+			{
+				"x" : 10,
+				"y" : 10
+			},
+
+			"Sprite" :
+			{
+
+			},
+
+			"Animations" :
+			[
+
+			],
+
+			"children" : ["CloudBig02", "CloudBig03"]
+		}
+	}
+}
