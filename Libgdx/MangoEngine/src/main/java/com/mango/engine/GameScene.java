@@ -6,11 +6,12 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 
 public class GameScene extends Group
 {
-    public String name ;
+    private String name ;
 
     public GameScene(String sceneName)
     {
         this.name = sceneName ;
+        setName(sceneName);
     }
 
     public enum SceneTransitions
@@ -20,7 +21,18 @@ public class GameScene extends Group
         slideInTop,
         slideInBottom,
         fade,
+    }
 
+    @Override
+    public void setName(String name)
+    {
+        super.setName(name);
+    }
+
+    @Override
+    public String getName()
+    {
+        return super.getName();
     }
 
     @Override
@@ -30,6 +42,7 @@ public class GameScene extends Group
 
         batch.setColor(getColor());
     }
+
 
     public void addNode(String node1, Node node2)
     {

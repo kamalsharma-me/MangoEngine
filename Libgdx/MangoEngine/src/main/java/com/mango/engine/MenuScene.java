@@ -6,6 +6,7 @@ import json.JSONObject;
 
 public class MenuScene extends GameScene implements MangoScene
 {
+    SplashScene  splashScene ;
     public JSONObject json ;
 
     MenuScene(String sceneName)
@@ -42,7 +43,16 @@ public class MenuScene extends GameScene implements MangoScene
     }
 
     @Override
-    public void Events(Event event) {
+    public void Events(Event event)
+    {
+        if (event.type.equals(Event.TOUCH_DOWN))
+        {
+            splashScene = new SplashScene("SplashScene") ;
+            Engine.setPresentScene(splashScene);
 
+            System.out.println("Total " + Engine.Canvas.getActors());
+
+            //System.out.println(event.nodeName);
+        }
     }
 }

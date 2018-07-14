@@ -12,6 +12,7 @@ public class AtlasPool
 {
     public JSONObject atlasPool = new JSONObject() ;
     private TextureAtlas textureAtlas ;
+    Texture kamal ;
 
     public AtlasPool() {}
 
@@ -26,6 +27,8 @@ public class AtlasPool
     public void setTextureToAtlasPool(String atlasName)
     {
         textureAtlas = new TextureAtlas(atlasName) ;
+        kamal = new Texture("Badlogic.jpg") ;
+
 
         Array<TextureAtlas.AtlasRegion> atlasRegionArray = textureAtlas.getRegions() ;
 

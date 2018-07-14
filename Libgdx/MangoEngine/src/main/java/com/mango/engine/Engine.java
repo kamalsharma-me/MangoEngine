@@ -141,12 +141,13 @@ public class Engine extends ApplicationAdapter implements Screen
     }
 
     // Scene Data
+    // Caution - check json exit
     public static void bindSceneData()
     {
         JSONObject json ;
-        String data = Engine.readJSONFromFile("SplashScene") ;
+        String data = Engine.readJSONFromFile(presentScene.getName()) ;
 
-        JSONObject nodes = new JSONObject(data).getJSONObject("SplashScene") ;
+        JSONObject nodes = new JSONObject(data).getJSONObject(presentScene.getName()) ;
 
         for(Iterator<String> keys = nodes.keys(); keys.hasNext();)
         {
@@ -159,11 +160,9 @@ public class Engine extends ApplicationAdapter implements Screen
 
     private static void createNode(String nodeName, JSONObject jsonObject)
     {
-        System.out.println("nm " + nodeName);
-
-        Node node = new Node(jsonObject) ;
+        Node node = new Node() ;
         node.setName(nodeName);
-        //node.init() ;
+        node.init(jsonObject) ;
         presentScene.addNode(node);
     }
 

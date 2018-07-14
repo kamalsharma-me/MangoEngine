@@ -17,7 +17,9 @@ public class ImageComponent implements Component
 
     public ImageComponent(Node node)
     {
-        TextureRegion textureName = Engine.atlasPool.getTextureFromAtlasPool("GameBG") ;
+        System.out.println("ImageComponent init. " + node.getName());
+
+        TextureRegion textureName = Engine.atlasPool.getTextureFromAtlasPool("BackgroundMenu") ;
 
         textureRegion = new TextureRegion(textureName) ;
 

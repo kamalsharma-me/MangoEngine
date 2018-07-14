@@ -14,7 +14,7 @@ public class Main extends Game implements MangoEngine
 
 		engine.create("data");
 
-		SplashScene splashScene = new SplashScene("Splash") ;
+		SplashScene splashScene = new SplashScene("SplashScene") ;
 		engine.initWithScene(splashScene) ;
 	}
 

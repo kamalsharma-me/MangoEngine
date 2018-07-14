@@ -18,10 +18,14 @@ public class Node extends Actor
     TextureRegion textureRegion ;
     SpriteBatch sprBatch ;
 
-    SpriteComponent spriteComponent ;
     JSONObject componentData ;
 
-    public Node(JSONObject jsonObject)
+    public Node()
+    {
+
+    }
+
+    public void init(JSONObject jsonObject)
     {
         FileHandle[] files = Gdx.files.internal("$ANDROID_PROJECT").list();
 
@@ -42,14 +46,6 @@ public class Node extends Actor
 
             componentData.put("AnimationComponent", animationComponent) ;
         }
-
-        addComponent();
-    }
-
-
-    public Node()
-    {
-        System.out.println("Node init. " + getName());
     }
 
     public void addComponent()
@@ -63,7 +59,6 @@ public class Node extends Actor
 
         return component ;
     }
-
 
     @Override
     public void draw(Batch batch, float parentAlpha)

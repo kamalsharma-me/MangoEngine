@@ -58,6 +58,7 @@ public class Transitions
 
         Engine.presentScene.addAction(actions);
 
+
         System.out.println("slideInLeft");
     }
 
@@ -77,7 +78,7 @@ public class Transitions
 
     public void slideInTop()
     {
-        System.out.println(Engine.activeScene.name + " " + Engine.presentScene.name);
+        //System.out.println(Engine.activeScene.name + " " + Engine.presentScene.name);
         MoveToAction slideInTop = Actions.moveTo(0, Gdx.graphics.getHeight()) ;
 
         Engine.presentScene.setY(Gdx.graphics.getHeight());
@@ -132,10 +133,10 @@ public class Transitions
         {
             Color color = new Color() ;
             System.out.println("completeAction");
-
+            Engine.activeScene.remove() ;
             Engine.activeScene.clearActions() ;
             Engine.activeScene.clearChildren() ;
-            Engine.activeScene.remove() ;
+
 
             if(!removeScene)
             {

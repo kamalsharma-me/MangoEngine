@@ -1,40 +1,19 @@
 
 Images.png
 format: RGBA8888
-filter: Linear,Linear
+filter: Nearest,Nearest
 repeat: none
-GameBG
+BackgroundMenu
   rotate: false
   xy: 1, 1
-  size: 320, 480
-  orig: 320, 480
+  size: 720, 1280
+  orig: 720, 1280
   offset: 0, 0
   index: -1
-MainMenuBG
+ButtonPlay
   rotate: false
-  xy: 323, 1
-  size: 320, 480
-  orig: 320, 480
-  offset: 0, 0
-  index: -1
-logo
-  rotate: false
-  xy: 645, 244
-  size: 224, 237
-  orig: 224, 237
-  offset: 0, 0
-  index: -1
-ButtonMenuPlay
-  rotate: false
-  xy: 645, 118
-  size: 128, 124
-  orig: 128, 124
-  offset: 0, 0
-  index: -1
-ButtonMenuPlaySelected
-  rotate: false
-  xy: 871, 357
-  size: 128, 124
-  orig: 128, 124
+  xy: 723, 1021
+  size: 259, 260
+  orig: 259, 260
   offset: 0, 0
   index: -1

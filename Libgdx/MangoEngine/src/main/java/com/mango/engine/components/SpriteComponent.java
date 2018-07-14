@@ -12,7 +12,7 @@ public class SpriteComponent
 
     public SpriteComponent(Node node)
     {
-        TextureRegion textureName = Engine.atlasPool.getTextureFromAtlasPool("GameBG") ;
+        TextureRegion textureName = Engine.atlasPool.getTextureFromAtlasPool("BackgroundMenu") ;
 
         textureRegion = new TextureRegion(textureName) ;
 
