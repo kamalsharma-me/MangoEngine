@@ -19,6 +19,7 @@ public class Node extends Actor
     SpriteBatch sprBatch ;
 
     JSONObject componentData ;
+    JSONObject json ;
 
     public Node()
     {
@@ -27,17 +28,19 @@ public class Node extends Actor
 
     public void init(JSONObject jsonObject)
     {
+        this.json = jsonObject ;
+
         FileHandle[] files = Gdx.files.internal("$ANDROID_PROJECT").list();
 
-        System.out.println(files) ;
+        //System.out.println(files) ;
 
         componentData = new JSONObject();
 
         if(jsonObject.has("Sprite"))
         {
-            ImageComponent imageComponent = new ImageComponent(this) ;
+            SpriteComponent spriteComponent = new SpriteComponent(this) ;
 
-            componentData.put("ImageComponent", imageComponent) ;
+            componentData.put("SpriteComponent", spriteComponent) ;
         }
 
         if(jsonObject.has("Animation"))
@@ -48,9 +51,22 @@ public class Node extends Actor
         }
     }
 
+    // COMPONENT OPERATIONS
     public void addComponent()
     {
 
+    }
+
+    public void getComponentData(String componentName)
+    {
+        if(this.json.has(componentName))
+        {
+            System.out.println(this.json.getJSONObject(componentName));
+        }
+        else
+        {
+            System.out.println("Component data not found.");
+        }
     }
 
     public Component getComponent(String componentName)

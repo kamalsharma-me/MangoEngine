@@ -6,9 +6,14 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.mango.engine.Engine;
 import com.mango.engine.Node;
 
-public class SpriteComponent
+public class SpriteComponent implements Component
 {
     TextureRegion textureRegion ;
+
+    public SpriteComponent()
+    {
+
+    }
 
     public SpriteComponent(Node node)
     {
@@ -19,9 +24,19 @@ public class SpriteComponent
         node.setSize(textureRegion.getRegionWidth(), textureRegion.getRegionHeight());
 
         node.setOrigin(textureRegion.getRegionWidth() / 2, textureRegion.getRegionHeight()/2);
+
+        node.getComponentData("Sprite");
     }
 
-    public void render(Node node, Batch spriteBatch)
+    // Interface Methods
+    @Override
+    public void init()
+    {
+        System.out.println("ImageComponent init.");
+    }
+
+    @Override
+    public void update(Node node, Batch spriteBatch)
     {
         spriteBatch.draw(textureRegion, node.getX(), node.getY(), node.getOriginX(), node.getOriginY(), node.getWidth(), node.getHeight(), node.getScaleX(), node.getScaleY(), node.getRotation()) ;
     }
