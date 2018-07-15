@@ -23,6 +23,7 @@ public class Engine extends ApplicationAdapter implements Screen
     public static Stage Canvas ;
 
     public static AtlasPool atlasPool ;
+    public static SpritePool spritePool ;
     JSONObject appObjectData;
 
     // GESTURES
@@ -43,6 +44,7 @@ public class Engine extends ApplicationAdapter implements Screen
         game.setScreen(this);
 
         atlasPool = new AtlasPool() ;
+        spritePool = new SpritePool() ;
 
         Canvas = new Stage() ;
 
@@ -88,6 +90,12 @@ public class Engine extends ApplicationAdapter implements Screen
                 JSONArray atlas = appObjectData.getJSONObject("app").getJSONObject("Atlas").getJSONArray("files") ;
 
                 atlasPool.readAtlas(atlas);
+            }
+            else if(key.compareTo("Sprites") == 0)
+            {
+                JSONArray fileName = appObjectData.getJSONObject("app").getJSONObject("Sprites").getJSONArray("files") ;
+
+                spritePool.readSprite(fileName);
             }
         }
 

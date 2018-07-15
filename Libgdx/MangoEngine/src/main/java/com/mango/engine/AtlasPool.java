@@ -10,9 +10,8 @@ import json.JSONObject;
 
 public class AtlasPool
 {
-    public JSONObject atlasPool = new JSONObject() ;
+    private JSONObject atlasPool = new JSONObject() ;
     private TextureAtlas textureAtlas ;
-    Texture kamal ;
 
     public AtlasPool() {}
 
@@ -24,40 +23,20 @@ public class AtlasPool
         }
     }
 
-    public void setTextureToAtlasPool(String atlasName)
+    private void setTextureToAtlasPool(String atlasName)
     {
         textureAtlas = new TextureAtlas(atlasName) ;
-        kamal = new Texture("Badlogic.jpg") ;
-
 
         Array<TextureAtlas.AtlasRegion> atlasRegionArray = textureAtlas.getRegions() ;
 
-        for(Iterator<TextureAtlas.AtlasRegion> keys = atlasRegionArray.iterator(); keys.hasNext();)
+        for (TextureAtlas.AtlasRegion key : atlasRegionArray)
         {
-            TextureAtlas.AtlasRegion key = keys.next() ;
-
-            // Setting the texture filter
-            // @
-
-            /*JSONObject textureData = new JSONObject() ;
-            textureData.put("texture", key.getTexture()) ;
-            textureData.put("x", key.getRegionX()) ;
-            textureData.put("y", key.getRegionY()) ;
-            textureData.put("w", key.getRegionWidth()) ;
-            textureData.put("h", key.getRegionHeight()) ;*/
-
-            atlasPool.put(key.name, key) ;
+            atlasPool.put(key.name, key);
         }
-
-        //System.out.println(atlasPool) ;
     }
 
     public TextureRegion getTextureFromAtlasPool(String textureName)
     {
-        TextureRegion textureData = (TextureRegion) atlasPool.get(textureName);
-
-        return textureData ;
-
-        //return (TextureRegion) textureData.get("texture") ;
+        return (TextureRegion) atlasPool.get(textureName) ;
     }
 }

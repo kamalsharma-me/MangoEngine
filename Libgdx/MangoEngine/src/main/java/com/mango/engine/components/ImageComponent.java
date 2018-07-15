@@ -17,8 +17,6 @@ public class ImageComponent implements Component
 
     public ImageComponent(Node node)
     {
-        System.out.println("ImageComponent init. " + node.getName());
-
         TextureRegion textureName = Engine.atlasPool.getTextureFromAtlasPool("BackgroundMenu") ;
 
         textureRegion = new TextureRegion(textureName) ;
@@ -38,9 +36,6 @@ public class ImageComponent implements Component
     @Override
     public void update(Node node, Batch spriteBatch)
     {
-        //System.out.println("ImageComponent - update");
-        //System.out.println(Engine.presentScene.getChildren());
-
         spriteBatch.draw(textureRegion, node.getX(), node.getY(), node.getOriginX(), node.getOriginY(), node.getWidth(), node.getHeight(), node.getScaleX(), node.getScaleY(), node.getRotation()) ;
     }
 }
