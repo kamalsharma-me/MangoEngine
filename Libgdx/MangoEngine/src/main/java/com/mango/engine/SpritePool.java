@@ -7,7 +7,7 @@ import json.JSONObject;
 
 public class SpritePool
 {
-    public JSONObject spritePool = new JSONObject() ;
+    public static JSONObject spritePool = new JSONObject() ;
 
     public void readSprite(JSONArray array)
     {
@@ -36,7 +36,7 @@ public class SpritePool
         return spritePool;
     }
 
-    public JSONArray getSpriteFromSpritePool(String name)
+    public static JSONArray getSpriteFromSpritePool(String name)
     {
         return (JSONArray) spritePool.get(name);
     }

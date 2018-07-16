@@ -19,6 +19,20 @@
 				"x" : 10,
 				"y" : 10
 			}
+		},
+
+		"Button" :
+		{
+			"Sprite" :
+			{
+				"name" : "ButtonPlay"
+			},
+
+			"Position" :
+			{
+				"x" : 40,
+				"y" : 40
+			}
 		}
 	}
 }

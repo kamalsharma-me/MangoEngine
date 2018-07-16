@@ -5,7 +5,7 @@
 		{
 			"Sprite" :
 			{
-				"Image" : "SpriteImage"
+				"name" : "ButtonPlay"
 			},
 
 			"Position" :

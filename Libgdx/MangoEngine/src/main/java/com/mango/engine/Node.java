@@ -57,16 +57,16 @@ public class Node extends Actor
 
     }
 
-    public void getComponentData(String componentName)
+    public JSONObject getComponentData(String componentName)
     {
+        JSONObject component = null ;
+
         if(this.json.has(componentName))
         {
-            System.out.println(this.json.getJSONObject(componentName));
+            component = this.json.getJSONObject(componentName) ;
         }
-        else
-        {
-            System.out.println("Component data not found.");
-        }
+
+        return component ;
     }
 
     public Component getComponent(String componentName)
