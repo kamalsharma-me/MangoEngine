@@ -26,11 +26,7 @@ public class SplashScene extends GameScene implements MangoScene
     @Override
     public void update()
     {
-        if (Gdx.input.justTouched())
-        {
-            Engine.atlasPool.getTextureFromAtlasPool("GameBG") ;
-            //
-        }
+
     }
 
     @Override
@@ -40,10 +36,6 @@ public class SplashScene extends GameScene implements MangoScene
         {
             menuScene = new MenuScene("MenuScene") ;
             Engine.setPresentScene(menuScene);
-
-
-
-            //System.out.println(event.nodeName);
         }
     }
 }

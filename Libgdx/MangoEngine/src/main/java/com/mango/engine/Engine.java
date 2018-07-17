@@ -34,8 +34,8 @@ public class Engine extends ApplicationAdapter implements Screen
     private Viewport viewport;
     public static  OrthographicCamera camera;
 
-    final float GAME_WORLD_WIDTH = 1080 ;
-    final float GAME_WORLD_HEIGHT = 1920 ;
+    public static final float GAME_WORLD_WIDTH = 1080 ;
+    public static final float GAME_WORLD_HEIGHT = 1920 ;
 
     // GESTURES
     GestureDetector gd ;
@@ -62,19 +62,12 @@ public class Engine extends ApplicationAdapter implements Screen
 
         camera = new OrthographicCamera();
 
-
         viewport = new FillViewport (GAME_WORLD_WIDTH, GAME_WORLD_HEIGHT, camera);
         viewport.apply();
 
         Canvas = new Stage(viewport) ;
 
-
-
-
-
         System.out.println("w " + w + " h " + h);
-
-
 
         gestures= new Gestures(this) ;
 
@@ -139,10 +132,7 @@ public class Engine extends ApplicationAdapter implements Screen
 
         Canvas.act(Gdx.graphics.getDeltaTime());
         Canvas.draw();
-
         camera.update();
-
-
         mangoScene.update() ;
 
         for(Integer i = 0; i < Engine.presentScene.getChildren().size; i++)
@@ -200,6 +190,7 @@ public class Engine extends ApplicationAdapter implements Screen
     private static void createNode(String nodeName, JSONObject jsonObject)
     {
         Node node = new Node() ;
+
         node.setName(nodeName);
         node.init(jsonObject) ;
         presentScene.addNode(node);
@@ -209,7 +200,7 @@ public class Engine extends ApplicationAdapter implements Screen
     {
         renderScene(sceneName) ;
 
-        Transitions transitions = new Transitions(false) ;
+        Transitions transitions = new Transitions() ;
         transitions.create(GameScene.SceneTransitions.slideInLeft);
     }
 

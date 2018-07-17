@@ -39,7 +39,7 @@ public class MenuScene extends GameScene implements MangoScene
     @Override
     public void update()
     {
-        //System.out.println("Menu Scene Update.");
+
     }
 
     @Override
@@ -49,10 +49,6 @@ public class MenuScene extends GameScene implements MangoScene
         {
             splashScene = new SplashScene("SplashScene") ;
             Engine.setPresentScene(splashScene);
-
-            System.out.println("Total " + Engine.Canvas.getActors());
-
-            //System.out.println(event.nodeName);
         }
     }
 }

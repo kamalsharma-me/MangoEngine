@@ -14,17 +14,13 @@ public class Transitions
 
     GameScene presentScene ;
     GameScene activeScene ;
-    Boolean removeScene;
 
     public Integer isTransitionActive = 0 ;
 
-    public Transitions(Boolean removeScene)
+    public Transitions()
     {
-        this.presentScene = engine.presentScene ;
-        this.activeScene = Engine.activeScene ;
-
-        this.removeScene = removeScene ;
-
+        this.presentScene   = engine.presentScene ;
+        this.activeScene    = Engine.activeScene ;
     }
 
     public void create(GameScene.SceneTransitions transition)
@@ -45,14 +41,12 @@ public class Transitions
 
     public void slideInLeft()
     {
+        MoveToAction slideInLeft = Actions.moveTo(Engine.GAME_WORLD_WIDTH, 0) ;
 
-
-        MoveToAction slideInLeft = Actions.moveTo(Gdx.graphics.getWidth(), 0) ;
-
-        Engine.presentScene.setX(Gdx.graphics.getWidth());
+        Engine.presentScene.setX(Engine.GAME_WORLD_WIDTH);
 
         slideInLeft.setX(0);
-        slideInLeft.setDuration(0.5f);
+        slideInLeft.setDuration(0.35f);
 
         Action actions = sequence(slideInLeft, completeAction);
 
@@ -136,12 +130,6 @@ public class Transitions
             Engine.activeScene.remove() ;
             Engine.activeScene.clearActions() ;
             Engine.activeScene.clearChildren() ;
-
-
-            if(!removeScene)
-            {
-                //engine.scenePool.getSceneFromScenePool("GameScene").remove() ;
-            }
 
             engine.activeScene = Engine.presentScene ;
 

@@ -1,5 +1,6 @@
 package com.mango.engine.components;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -21,16 +22,13 @@ public class SpriteComponent implements Component
 
     public SpriteComponent(Node node)
     {
-        JSONObject sprite                       = node.getComponentData("Sprite");
-        JSONArray getTextureFromSpritePool      = SpritePool.getSpriteFromSpritePool(sprite.getString("name"));
+        JSONObject sprite                   = node.getComponentData("Sprite");
+        JSONArray getTextureFromSpritePool  = SpritePool.getSpriteFromSpritePool(sprite.getString("name"));
 
-        TextureRegion getTextureFromAtlasPool   = Engine.atlasPool.getTextureFromAtlasPool((String) getTextureFromSpritePool.get(0)) ;
-
-        textureRegion                           = new TextureRegion(getTextureFromAtlasPool) ;
+        textureRegion                       = Engine.atlasPool.getTextureFromAtlasPool((String) getTextureFromSpritePool.get(0)) ;
 
         node.setSize(textureRegion.getRegionWidth(), textureRegion.getRegionHeight());
-
-        node.setOrigin(textureRegion.getRegionWidth() / 2, textureRegion.getRegionHeight()/2);
+        node.setOrigin(textureRegion.getRegionWidth() / 2, textureRegion.getRegionHeight() / 2);
     }
 
     // Interface Methods

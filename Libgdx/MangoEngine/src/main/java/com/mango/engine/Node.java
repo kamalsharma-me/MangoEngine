@@ -58,6 +58,16 @@ public class Node extends Actor
         }
     }
 
+    /*
+    OPERATIONS
+     */
+
+    // Get specific node from present scene -> canvas
+    public Node getNodeFromScene(String name)
+    {
+        return Engine.Canvas.getRoot().findActor(name) ;
+    }
+
     // COMPONENT OPERATIONS
     public void addComponent()
     {
@@ -87,7 +97,9 @@ public class Node extends Actor
     public void draw(Batch batch, float parentAlpha)
     {
         super.draw(batch, parentAlpha);
+
         Engine.camera.update();
+
         batch.setProjectionMatrix(Engine.camera.combined);
 
         for(Iterator<String> iter = componentData.keys(); iter.hasNext();)
@@ -101,6 +113,6 @@ public class Node extends Actor
     @Override
     public void act(float delta)
     {
-
+        super.act(delta);
     }
 }
