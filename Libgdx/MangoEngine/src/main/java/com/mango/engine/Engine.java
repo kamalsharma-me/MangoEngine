@@ -6,9 +6,14 @@ import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.input.GestureDetector;
+import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.viewport.FillViewport;
+import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
 import java.util.Iterator;
 
@@ -25,6 +30,12 @@ public class Engine extends ApplicationAdapter implements Screen
     public static AtlasPool atlasPool ;
     public static SpritePool spritePool ;
     JSONObject appObjectData;
+
+    private Viewport viewport;
+    public static  OrthographicCamera camera;
+
+    final float GAME_WORLD_WIDTH = 1080 ;
+    final float GAME_WORLD_HEIGHT = 1920 ;
 
     // GESTURES
     GestureDetector gd ;
@@ -45,8 +56,25 @@ public class Engine extends ApplicationAdapter implements Screen
 
         atlasPool = new AtlasPool() ;
         spritePool = new SpritePool() ;
+        float w = Gdx.graphics.getWidth();
+        float aspectRatio = (float)Gdx.graphics.getHeight()/(float)Gdx.graphics.getWidth();
+        float h = Gdx.graphics.getHeight();
 
-        Canvas = new Stage() ;
+        camera = new OrthographicCamera();
+
+
+        viewport = new FillViewport (GAME_WORLD_WIDTH, GAME_WORLD_HEIGHT, camera);
+        viewport.apply();
+
+        Canvas = new Stage(viewport) ;
+
+
+
+
+
+        System.out.println("w " + w + " h " + h);
+
+
 
         gestures= new Gestures(this) ;
 
@@ -111,6 +139,9 @@ public class Engine extends ApplicationAdapter implements Screen
 
         Canvas.act(Gdx.graphics.getDeltaTime());
         Canvas.draw();
+
+        camera.update();
+
 
         mangoScene.update() ;
 
@@ -224,5 +255,28 @@ public class Engine extends ApplicationAdapter implements Screen
         FileHandle file = Gdx.files.internal(fileName + ".json");
 
         return file.readString() ;
+    }
+
+    @Override
+    public void resize(int width, int height)
+    {
+        super.resize(width, height);
+        float aspectRatio = (float)width / (float)height ;
+
+        if(camera != null)
+        {
+            Canvas.getViewport().update(width, height);
+            camera.update();
+        }
+
+
+
+        //System.out.println("Ratio " + Math.abs(viewport.getRightGutterX()) + " " + Math.abs(viewport.getTopGutterY()));
+        //System.out.println("Ratio " + aspectRatio + " w " + width + " h " + height + " " + ButtonPlay.getY());
+
+        //viewport.update(width, height, true);
+        //stage.setViewport(400, 400);
+        //Canvas.getCamera().position.set(GAME_WORLD_WIDTH/2, GAME_WORLD_HEIGHT/2, 0);
+        //camera.position.set(GAME_WORLD_WIDTH/2, GAME_WORLD_HEIGHT/2, 0) ;
     }
 }

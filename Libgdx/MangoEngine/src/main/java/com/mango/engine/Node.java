@@ -43,6 +43,13 @@ public class Node extends Actor
             componentData.put("SpriteComponent", spriteComponent) ;
         }
 
+        if(jsonObject.has("Position"))
+        {
+            PositionComponent positionComponent = new PositionComponent(this) ;
+
+            componentData.put("PositionComponent", positionComponent) ;
+        }
+
         if(jsonObject.has("Animation"))
         {
             AnimationComponent animationComponent = new AnimationComponent(this) ;
@@ -80,8 +87,10 @@ public class Node extends Actor
     public void draw(Batch batch, float parentAlpha)
     {
         super.draw(batch, parentAlpha);
+        Engine.camera.update();
+        batch.setProjectionMatrix(Engine.camera.combined);
 
-        for(Iterator<String> iter = componentData.keys();iter.hasNext();)
+        for(Iterator<String> iter = componentData.keys(); iter.hasNext();)
         {
             String key = iter.next();
 

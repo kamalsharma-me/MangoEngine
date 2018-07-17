@@ -6,13 +6,13 @@ repeat: none
 BackgroundMenu
   rotate: false
   xy: 1, 1
-  size: 720, 1280
-  orig: 720, 1280
+  size: 1080, 1920
+  orig: 1080, 1920
   offset: 0, 0
   index: -1
 ButtonPlay
   rotate: false
-  xy: 723, 1021
+  xy: 1083, 1661
   size: 259, 260
   orig: 259, 260
   offset: 0, 0

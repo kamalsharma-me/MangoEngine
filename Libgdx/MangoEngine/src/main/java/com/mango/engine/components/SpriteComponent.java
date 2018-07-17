@@ -29,6 +29,7 @@ public class SpriteComponent implements Component
         textureRegion                           = new TextureRegion(getTextureFromAtlasPool) ;
 
         node.setSize(textureRegion.getRegionWidth(), textureRegion.getRegionHeight());
+
         node.setOrigin(textureRegion.getRegionWidth() / 2, textureRegion.getRegionHeight()/2);
     }
 

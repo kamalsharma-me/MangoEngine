@@ -1,6 +1,26 @@
 {
 	"MenuScene" :
 	{
+		"Background" :
+		{
+			"Sprite" :
+			{
+				"name" : "SplashBG"
+			},
+
+			"Position" :
+			{
+				"x" : 0,
+				"y" : 0
+			},
+
+			"Animation" :
+			{
+				"x" : 10,
+				"y" : 10
+			}
+		},
+
 		"BackgroundMenu" :
 		{
 			"Sprite" :
@@ -10,8 +30,8 @@
 
 			"Position" :
 			{
-				"x" : 10,
-				"y" : 10
+				"x" : 200,
+				"y" : 400
 			},
 
 			"Animation" :
