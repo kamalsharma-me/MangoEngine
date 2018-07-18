@@ -34,8 +34,13 @@ public class SplashScene extends GameScene implements MangoScene
     {
         if (event.type.equals(Event.TOUCH_DOWN))
         {
-            menuScene = new MenuScene("MenuScene") ;
-            Engine.setPresentScene(menuScene);
+            System.out.println("name " + event.nodeName);
+
+            if(event.nodeName.equals("Button"))
+            {
+                menuScene = new MenuScene("MenuScene") ;
+                Engine.setPresentScene(menuScene);
+            }
         }
     }
 }

@@ -29,6 +29,7 @@ public class Engine extends ApplicationAdapter implements Screen
 
     public static AtlasPool atlasPool ;
     public static SpritePool spritePool ;
+    public static ActionPool actionPool ;
     JSONObject appObjectData;
 
     private Viewport viewport;
@@ -56,6 +57,7 @@ public class Engine extends ApplicationAdapter implements Screen
 
         atlasPool = new AtlasPool() ;
         spritePool = new SpritePool() ;
+        actionPool = new ActionPool() ;
         float w = Gdx.graphics.getWidth();
         float aspectRatio = (float)Gdx.graphics.getHeight()/(float)Gdx.graphics.getWidth();
         float h = Gdx.graphics.getHeight();
@@ -117,6 +119,12 @@ public class Engine extends ApplicationAdapter implements Screen
                 JSONArray fileName = appObjectData.getJSONObject("app").getJSONObject("Sprites").getJSONArray("files") ;
 
                 spritePool.readSprite(fileName);
+            }
+            else if(key.compareTo("Actions") == 0)
+            {
+                JSONArray fileName = appObjectData.getJSONObject("app").getJSONObject("Actions").getJSONArray("files") ;
+System.out.println(fileName);
+                actionPool.readAction(fileName);
             }
         }
 
